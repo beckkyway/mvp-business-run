@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .desktop-sidebar {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@layer base {
+  :root {
+    --bg-primary: #0f172a;
+    --bg-sidebar: #0d1117;
+    --accent: #7c3aed;
+    --accent-glow: rgba(124, 58, 237, 0.4);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body, #root {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Animated background gradient */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+  background: linear-gradient(
+    135deg,
+    #0f172a 0%,
+    #1e1b4b 25%,
+    #0f172a 50%,
+    #1a0533 75%,
+    #0f172a 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+/* Accent glow */
+.accent-glow {
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Markdown styles */
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  color: #e2e8f0;
+  margin: 1em 0 0.5em;
+  font-weight: 600;
+}
+.markdown-body p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 0.75em;
+}
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.9em;
+}
+.markdown-body th {
+  background: rgba(124, 58, 237, 0.2);
+  color: #e2e8f0;
+  padding: 8px 12px;
+  text-align: left;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.markdown-body td {
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,0.07);
+  color: #cbd5e1;
+}
+.markdown-body tr:nth-child(even) td {
+  background: rgba(255,255,255,0.02);
+}
+.markdown-body code {
+  background: rgba(124, 58, 237, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+  color: #c4b5fd;
+}
+.markdown-body pre {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+.markdown-body pre code {
+  background: transparent;
+  padding: 0;
+  color: #e2e8f0;
+}
+.markdown-body ul, .markdown-body ol {
+  color: #cbd5e1;
+  padding-left: 1.5em;
+  margin-bottom: 0.75em;
+}
+.markdown-body li {
+  margin-bottom: 0.3em;
+  line-height: 1.6;
+}
+.markdown-body strong {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+.markdown-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 12px;
+  color: #94a3b8;
+  margin: 1em 0;
+}
